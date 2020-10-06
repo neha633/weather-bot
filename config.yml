@@ -1,0 +1,28 @@
+## Configuration for Rasa NLU.
+## https://rasa.com/docs/rasa/nlu/components/
+#language: "en"
+#
+#pipeline:
+#- name: "WhitespaceTokenizer"
+#- name: "RegexFeaturizer"
+#- name: "CRFEntityExtractor"
+#- name: "EntitySynonymMapper"
+#- name: "CountVectorsFeaturizer"
+#- name: "EmbeddingIntentClassifier"
+#
+## Configuration for Rasa Core.
+## https://rasa.com/docs/rasa/core/policies/
+#policies:
+#  - name: MemoizationPolicy
+#  - name: MappingPolicy
+#  - name: EmbeddingPolicy
+#  - name: FormPolicy
+#  - name: TwoStageFallbackPolicy
+language: "en"
+pipeline: "pretrained_embeddings_spacy"
+
+
+policies:
+  - name: MemoizationPolicy
+  - name: KerasPolicy
+    epochs: 200
